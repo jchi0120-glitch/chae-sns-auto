@@ -2,10 +2,10 @@
  "handle": "@consultant_chae",
  "slides": [
   {
-   "body": "<span class=tag>출고후기</span><h1>G80 반납하고<br><span class=g>G90으로</span><br>갈아탔습니다</h1><p class=sub>750만원 프로모션 + 즉시출고<br>제네시스 G90 장기렌트 실제 사례</p><p class=swipe>넘겨서 확인하세요 →</p>"
+   "body": "<div style=\"position:absolute;z-index:-1;top:-150px;left:-72px;width:1080px;height:820px;background:url('photo_cover.jpg') center/cover no-repeat\"><div style='position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,23,.75) 0%,rgba(11,15,23,0) 22%,rgba(11,15,23,0) 55%,#0b0f17 100%)'></div></div><div style='height:520px'></div><span class=tag>출고후기</span><h1 style='font-size:76px;margin-bottom:22px'>G80 반납하고 <span class=g>G90으로</span><br>갈아탔습니다</h1><p class=sub style='font-size:34px'>750만원 프로모션 + 즉시출고 · 제네시스 G90 장기렌트</p>"
   },
   {
-   "body": "<span class=tag>고객님 상황</span><h2>G80도 좋았지만<br><span class=g>한 단계 위</span>가 궁금했던<br>대표님</h2><div class=panel><div class=t>Before · G80 장기렌트</div><div class=d>만족하며 타시다가 반납하고 차량 변경 결정</div></div><div class='panel hl'><div class=t>After · 제네시스 G90</div><div class=d>최상위 세단, 넓은 실내, 편안한 승차감<br>장거리 많은 분들이 많이 비교하시는 차</div></div>"
+   "body": "<span class=tag>고객님 상황</span><h2 style='font-size:58px;margin-bottom:28px'>G80도 좋았지만<br><span class=g>한 단계 위</span>가 궁금했던 대표님</h2><div style=\"height:400px;border-radius:28px;margin-bottom:22px;background:url('photo_side.jpg') center 40%/cover\"></div><div class=two><div class=panel><div class=t style='font-size:34px'>Before · G80</div><div class=d style='font-size:28px'>만족하며 타시다 반납</div></div><div class='panel hl'><div class=t style='font-size:34px'>After · G90</div><div class=d style='font-size:28px'>최상위 세단·넓은 실내<br>편안한 승차감</div></div></div>"
   },
   {
    "body": "<span class=tag>포인트 ①</span><h2>월 렌트료보다<br><span class=g>프로모션</span>이 먼저예요</h2><div class='panel hl'><div class=t>이번 출고: <span class=pill>750만원</span> 프로모션 적용</div><div class=d>차값이 높은 G90일수록 어떤 프로모션이<br>붙느냐에 따라 전체 조건이 달라져요</div></div><div class=panel><div class=d>※ 모든 G90에 같은 혜택이 붙는 건 아니에요.<br>재고·사양·렌트사·계약 조건에 따라 달라져서<br>실제 견적으로 비교해 보셔야 해요</div></div>"
@@ -17,7 +17,7 @@
    "body": "<span class=tag>견적 비교 체크</span><h2 style='font-size:58px'>G90 장기렌트,<br>가격만 보면 안 되는 이유</h2><div class=row><span class=s>계약 기간 36개월? 48개월?</span><span class=a>월납 차이</span></div><div class=row><span class=s>연간 주행거리 설정</span><span class=a>월납 차이</span></div><div class=row><span class=s>보증금·선납금 유무</span><span class=a>월납 차이</span></div><div class=row><span class=s>만기 후 반납? 인수?</span><span class=a>조건 차이</span></div><p class=sub style='margin-top:24px'>싼 견적보다 <span class=g>내 이용 계획에 맞는 견적</span></p>"
   },
   {
-   "body": "<span class=tag>무료 견적 비교</span><h1 style='font-size:70px'>G90 프로모션·<br>즉시출고 재고,<br><span class=g>지금 확인해 드려요</span></h1><p class=sub>원하시는 사양·계약 기간·보증금 조건만<br>알려주시면 비교해서 안내해 드려요</p><span class=btn>프로필 링크에서 상담 →</span><p class=note>※ 프로모션과 재고는 상담 시점에 따라 달라질 수 있어요</p>"
+   "body": "<div style=\"position:absolute;z-index:-1;top:-150px;left:-72px;width:1080px;height:760px;background:url('photo_front.jpg') center 30%/cover no-repeat\"><div style='position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,23,.75) 0%,rgba(11,15,23,0) 22%,rgba(11,15,23,0) 55%,#0b0f17 100%)'></div></div><div style='height:470px'></div><span class=tag>무료 견적 비교</span><h1 style='font-size:62px;margin-bottom:20px'>G90 프로모션·즉시출고 재고,<br><span class=g>지금 확인해 드려요</span></h1><p class=sub style='font-size:32px'>사양·계약 기간·보증금 조건만 알려주세요</p><span class=btn style='margin-top:28px;font-size:40px;padding:24px 44px'>프로필 링크에서 상담 →</span><p class=note>※ 프로모션과 재고는 상담 시점에 따라 달라질 수 있어요</p>"
   }
  ]
 }
