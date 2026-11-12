@@ -58,21 +58,25 @@ def post_instagram(folder, ig):
     return call("POST", f"{GRAPH}/{uid}/media_publish", creation_id=car, access_token=token)["id"]
 
 
-def post_threads(chain):
+def post_threads(folder, chain):
     token = os.getenv("THREADS_TOKEN")
     if not token:
         print("  쓰레드 토큰 없음 → 건너뜀")
         return None
     if DRY:
-        print("  [점검] 쓰레드", len(chain), "개 연결 글")
+        print("  [점검] 쓰레드", len(chain), "개 연결 글", [c.get("image") for c in chain if isinstance(c, dict)])
         return "dry-run"
     ids, reply_to = [], None
-    for text in chain:
-        params = dict(media_type="TEXT", text=text, access_token=token)
+    for item in chain:
+        if isinstance(item, str):
+            item = {"text": item}
+        params = dict(media_type="TEXT", text=item["text"], access_token=token)
+        if item.get("image"):
+            params.update(media_type="IMAGE", image_url=f"{RAW}/posts/{folder.name}/{item['image']}")
         if reply_to:
             params["reply_to_id"] = reply_to
         cid = call("POST", f"{THREADS}/me/threads", **params)["id"]
-        time.sleep(10)
+        time.sleep(30 if item.get("image") else 10)
         reply_to = call("POST", f"{THREADS}/me/threads_publish", creation_id=cid, access_token=token)["id"]
         ids.append(reply_to)
     return ids
@@ -91,7 +95,7 @@ def main():
             continue
         print(f"▶ {folder.name} (예약 {when:%m/%d %H:%M})")
         for key, fn in (("instagram", lambda: post_instagram(folder, post["instagram"])),
-                        ("threads", lambda: post_threads(post["threads"]))):
+                        ("threads", lambda: post_threads(folder, post["threads"]))):
             if key not in post or key in done:
                 continue
             try:
