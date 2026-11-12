@@ -1,0 +1,22 @@
+{
+ "handle": "@consultant_chae",
+ "slides": [
+  {"body": "<span class=tag>개인사업자 필독</span><h1>장기렌트 리스 차이<br><span class=g>세금이 아닙니다</span></h1><p class=sub>번호판·보험·중도해지,<br>진짜 차이는 여기서 갈려요</p><p class=swipe>넘겨서 확인하세요 →</p>"},
+
+  {"body": "<span class=tag>오해 바로잡기</span><h2>“리스가 세금에<br>더 유리하다?”<br><span class=g>개인사업자는 아니에요</span></h2><div class='panel hl'><div class=t>비용처리 한도, 세 방식 모두 같아요</div><div class=d>장기렌트 · 리스 · 할부 모두 같은 규정 적용</div></div><div class=two><div class=panel><div class=d>운행기록부 없으면</div><div class=t style='margin-top:10px'><span class=pill>연 1,500만원</span></div></div><div class=panel><div class=d>감가상각 상당액</div><div class=t style='margin-top:10px'><span class=pill>연 800만원</span></div><div class=d style='font-size:26px'>초과분은 다음 해 이월</div></div></div>"},
+
+  {"body": "<span class=tag>한눈에 비교</span><h2 style='margin-bottom:30px'>장기렌트 · 리스 · 할부</h2><table><tr><th></th><th class=r>장기렌트</th><th>리스</th><th>할부</th></tr><tr><td>명의</td><td>렌트사</td><td>리스사</td><td>본인</td></tr><tr><td>번호판</td><td>하·허·호</td><td>일반</td><td>일반</td></tr><tr><td>보험</td><td>월납 포함</td><td>본인 가입</td><td>본인 가입</td></tr><tr><td>자동차세</td><td>월납 포함</td><td>본인 부담</td><td>본인 부담</td></tr><tr><td>사고 할증</td><td>내 경력 X</td><td>본인 할증</td><td>본인 할증</td></tr><tr><td>중도해지</td><td>잔여 30~40%대</td><td>잔여 20~30%대</td><td>조기상환<br>수수료만</td></tr><tr><td>신용 부채</td><td>통상 없음</td><td>통상 없음</td><td>대출 등재</td></tr></table>"},
+
+  {"body": "<span class=tag>진짜 차이 3가지</span><h2>유불리를 만드는 건<br><span class=g>이 세 가지예요</span></h2><div class='panel hl'><div class=t>① 보험</div><div class=d>렌트는 렌트사 보험이라 사고 나도 내 할증 X<br>대신 무사고 경력도 안 쌓여요</div></div><div class=panel><div class=t>② 번호판</div><div class=d>렌트는 하·허·호, 리스·할부는 일반 번호판</div></div><div class=panel><div class=t>③ 중도해지</div><div class=d>보통 렌트가 가장 커요. 계약 전 위약금 산식 확인!</div></div>"},
+
+  {"body": "<span class=tag>부가세 체크</span><h2>부가세 공제는<br><span class=g>방식이 아니라 차종</span>이<br>정해요</h2><div class=two><div class=panel><div class=t>공제 안 됨</div><div class=d>8인승 이하 승용차<br>(렌트·리스 상관없이)</div></div><div class='panel hl'><div class=t>공제 가능</div><div class=d>9인승 이상<br>(카니발 9인승·스타리아)<br>경차 · 화물차</div></div></div>"},
+
+  {"body": "<span class=tag>유형별 선택 기준</span><h2 style='font-size:58px'>내 상황엔 뭐가 맞을까?</h2><div class=row><span class=s>사고 이력 있고 보험료가 높다</span><span class=a>장기렌트</span></div><div class=row><span class=s>세금·보험 따로 챙기기 싫다</span><span class=a>장기렌트</span></div><div class=row><span class=s>하·허·호 번호판이 신경 쓰인다</span><span class=a>리스</span></div><div class=row><span class=s>외제차, 5년 이상 탈 계획</span><span class=a>리스·할부</span></div><div class=row><span class=s>연 3만km 이상 주행</span><span class=a>장기렌트</span></div><div class=row><span class=s>신용점수 관리, 추가 대출 예정</span><span class=a>장기렌트</span></div>"},
+
+  {"body": "<span class=tag>실제 사례</span><h2>인천 인테리어<br>개인사업자 대표님</h2><div class=panel><div class=t>Before · 리스 그랜저</div><div class=d>접촉사고 2건 → 보험료가 크게 올랐어요</div></div><div class='panel hl'><div class=t>After · 같은 차 장기렌트</div><div class=d>월납은 비슷, 보험 할증 부담은 사라짐<br>비용처리 금액은 그대로</div></div><p class=sub style='margin-top:20px'>바뀐 건 세금이 아니라 <span class=g>보험 구조</span>였어요</p>"},
+
+  {"body": "<span class=tag>결정 순서</span><h2>이 4가지만 정하면<br><span class=g>방식은 자동으로</span></h2><div class=steps><div class=step><div class=n>1</div><div><div class=t>차종</div><div class=d>9인승 이상인가?</div></div></div><div class=step><div class=n>2</div><div><div class=t>보험 상황</div><div class=d>사고 이력·보험료 수준</div></div></div><div class=step><div class=n>3</div><div><div class=t>보유 기간</div><div class=d>만기 후 인수할 계획인가?</div></div></div><div class=step><div class=n>4</div><div><div class=t>주행거리</div><div class=d>연 3만km 넘는가?</div></div></div></div>"},
+
+  {"body": "<span class=tag>무료 견적 비교</span><h1 style='font-size:72px'>차종·기간·<br>연 주행거리만<br><span class=g>알려주세요</span></h1><p class=sub>여러 사 견적을 한 번에 비교하고<br>조건별 유불리를 정직하게 말씀드려요</p><span class=btn>프로필 링크에서 상담 →</span><p class=note>※ 세무 판단은 담당 세무사 확인을 권합니다</p>"}
+ ]
+}
