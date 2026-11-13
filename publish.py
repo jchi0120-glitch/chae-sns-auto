@@ -41,6 +41,20 @@ def wait_ready(base, cid, token, field="status_code"):
     raise RuntimeError(f"컨테이너 {cid} 처리 시간 초과")
 
 
+def with_footer(caption):
+    """인스타 캡션에 고정 소개글(instagram_footer.txt)을 해시태그 바로 위에 붙인다."""
+    f = ROOT / "instagram_footer.txt"
+    if not f.exists():
+        return caption
+    footer = f.read_text().strip()
+    if footer in caption:
+        return caption
+    parts = caption.rstrip().split("\n\n")
+    if parts and parts[-1].lstrip().startswith("#"):
+        return "\n\n".join(parts[:-1] + ["━━━━━━━━━━", footer, parts[-1]])
+    return caption.rstrip() + "\n\n━━━━━━━━━━\n\n" + footer
+
+
 def post_instagram(folder, ig):
     token, uid = os.environ["IG_TOKEN"], os.environ["IG_USER_ID"]
     urls = [f"{RAW}/posts/{folder.name}/{name}" for name in ig["images"]]
@@ -54,7 +68,7 @@ def post_instagram(folder, ig):
     for c in children:
         wait_ready(GRAPH, c, token)
     car = call("POST", f"{GRAPH}/{uid}/media", media_type="CAROUSEL",
-               children=",".join(children), caption=ig["caption"], access_token=token)["id"]
+               children=",".join(children), caption=with_footer(ig["caption"]), access_token=token)["id"]
     wait_ready(GRAPH, car, token)
     return call("POST", f"{GRAPH}/{uid}/media_publish", creation_id=car, access_token=token)["id"]
 
