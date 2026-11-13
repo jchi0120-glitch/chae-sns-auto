@@ -9,6 +9,7 @@ posts/<글이름>/post.json 중 발행 시각이 지났고 아직 안 올라간 
   THREADS_TOKEN               쓰레드 (없으면 쓰레드는 건너뜀)
   REPO_RAW_BASE               이미지 공개 주소 앞부분
   DRY_RUN=1                   실제 발행 없이 점검만
+  (post.json·publish.py가 바뀌어 push되면 즉시 실행됨)
 """
 import json, os, sys, time, pathlib, datetime as dt
 import requests
