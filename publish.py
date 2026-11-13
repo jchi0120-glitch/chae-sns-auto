@@ -41,18 +41,22 @@ def wait_ready(base, cid, token, field="status_code"):
     raise RuntimeError(f"컨테이너 {cid} 처리 시간 초과")
 
 
-def with_footer(caption):
-    """인스타 캡션에 고정 소개글(instagram_footer.txt)을 해시태그 바로 위에 붙인다."""
+def first_comment_text():
+    """인스타 게시 직후 첫 댓글로 달 고정 소개글 (instagram_footer.txt)."""
     f = ROOT / "instagram_footer.txt"
-    if not f.exists():
-        return caption
-    footer = f.read_text().strip()
-    if footer in caption:
-        return caption
-    parts = caption.rstrip().split("\n\n")
-    if parts and parts[-1].lstrip().startswith("#"):
-        return "\n\n".join(parts[:-1] + ["━━━━━━━━━━", footer, parts[-1]])
-    return caption.rstrip() + "\n\n━━━━━━━━━━\n\n" + footer
+    return f.read_text().strip() if f.exists() else ""
+
+
+def comment_instagram(media_id):
+    text = first_comment_text()
+    if not text:
+        return None
+    if DRY:
+        print("  [점검] 인스타 첫 댓글", len(text), "자")
+        return "dry-run"
+    token = os.environ["IG_TOKEN"]
+    time.sleep(5)
+    return call("POST", f"{GRAPH}/{media_id}/comments", message=text, access_token=token)["id"]
 
 
 def post_instagram(folder, ig):
@@ -68,7 +72,7 @@ def post_instagram(folder, ig):
     for c in children:
         wait_ready(GRAPH, c, token)
     car = call("POST", f"{GRAPH}/{uid}/media", media_type="CAROUSEL",
-               children=",".join(children), caption=with_footer(ig["caption"]), access_token=token)["id"]
+               children=",".join(children), caption=ig["caption"], access_token=token)["id"]
     wait_ready(GRAPH, car, token)
     return call("POST", f"{GRAPH}/{uid}/media_publish", creation_id=car, access_token=token)["id"]
 
@@ -121,6 +125,20 @@ def main():
             except Exception as e:
                 failed = True
                 print(f"  {key} 실패: {e}")
+        # 인스타 첫 댓글(고정 소개글): 한 번만 시도하고 결과를 기록 (권한 없으면 기록만 남기고 재시도 안 함)
+        ig_done = done.get("instagram")
+        # 이번 실행에서 막 올린 게시물에만 댓글 (예전에 올린 게시물엔 달지 않음)
+        fresh = ig_done and ig_done.get("at", "") >= now.isoformat()
+        if (fresh or DRY) and "instagram_comment" not in done and first_comment_text():
+            try:
+                cid = comment_instagram(ig_done["id"] if ig_done else "dry")
+                if not DRY:
+                    done["instagram_comment"] = {"id": cid, "at": dt.datetime.now(KST).isoformat()}
+                print(f"  instagram_comment 완료: {cid}")
+            except Exception as e:
+                if not DRY:
+                    done["instagram_comment"] = {"error": str(e)[:300], "at": dt.datetime.now(KST).isoformat()}
+                print(f"  instagram_comment 실패: {e}")
         if done and not DRY:
             done_f.write_text(json.dumps(done, ensure_ascii=False, indent=2))
     sys.exit(1 if failed else 0)
