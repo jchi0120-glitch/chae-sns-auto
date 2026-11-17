@@ -5,6 +5,7 @@
 - `posts/<글이름>/post.json` : 발행 시각(`publish_at`), 인스타 캡션·이미지, 쓰레드 글 목록
 - `posts/<글이름>/card_XX.jpg` : 카드뉴스 이미지 (1080×1350)
 - `posts/<글이름>/published.json` : 발행 기록 (자동 생성, 중복 발행 방지)
+- 이미 올라간 쓰레드에 나중에 글 덧붙이기: post.json에 `"threads_append": ["문구", ...]` 추가 → 마지막 쓰레드 글 밑에 한 번만 이어서 달림 (예: 깜빡한 블로그 링크)
 - `tools/render.py` : 카드뉴스 디자인 템플릿
 - `.github/workflows/publish.yml` : 30분마다 예약 확인 후 발행
 

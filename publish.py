@@ -77,15 +77,17 @@ def post_instagram(folder, ig):
     return call("POST", f"{GRAPH}/{uid}/media_publish", creation_id=car, access_token=token)["id"]
 
 
-def post_threads(folder, chain):
+def post_threads(folder, chain, reply_to=None):
+    """reply_to를 주면 이미 올라간 쓰레드 글 밑에 이어서 단다 (threads_append용)."""
     token = os.getenv("THREADS_TOKEN")
     if not token:
         print("  쓰레드 토큰 없음 → 건너뜀")
         return None
     if DRY:
-        print("  [점검] 쓰레드", len(chain), "개 연결 글", [c.get("image") for c in chain if isinstance(c, dict)])
+        print("  [점검] 쓰레드", len(chain), "개 연결 글", [c.get("image") for c in chain if isinstance(c, dict)],
+              "(이어 달기: " + reply_to + ")" if reply_to else "")
         return "dry-run"
-    ids, reply_to = [], None
+    ids = []
     for item in chain:
         if isinstance(item, str):
             item = {"text": item}
@@ -125,6 +127,17 @@ def main():
             except Exception as e:
                 failed = True
                 print(f"  {key} 실패: {e}")
+        # 이미 올라간 쓰레드 끝에 나중에 글을 덧붙이기 (post.json의 threads_append, 한 번만)
+        th_done = done.get("threads")
+        if "threads_append" in post and "threads_append" not in done and th_done and isinstance(th_done.get("id"), list):
+            try:
+                res = post_threads(folder, post["threads_append"], reply_to=th_done["id"][-1])
+                if res is not None and not DRY:
+                    done["threads_append"] = {"id": res, "at": dt.datetime.now(KST).isoformat()}
+                print(f"  threads_append 완료: {res}")
+            except Exception as e:
+                failed = True
+                print(f"  threads_append 실패: {e}")
         # 인스타 첫 댓글(고정 소개글): 한 번만 시도하고 결과를 기록 (권한 없으면 기록만 남기고 재시도 안 함)
         ig_done = done.get("instagram")
         # 이번 실행에서 막 올린 게시물에만 댓글 (예전에 올린 게시물엔 달지 않음)
